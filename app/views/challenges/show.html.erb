@@ -1,0 +1,14 @@
+<%= turbo_stream_from @challenge %>
+
+<div class="mx-auto max-w-7xl w-full flex flex-col pt-16">
+  <%= render @challenge %>
+  <%= render "code_editer", challenge: @challenge, user_challenge: @user_challenge %>
+
+  <div id="results">
+    <% if @user_challenge&.completed? %>
+      <%= render "complete" %>
+    <% end %>
+  </div>
+  <br/>
+  <%= link_to "Back to challenges", challenges_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</div>
